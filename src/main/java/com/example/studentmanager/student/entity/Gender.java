@@ -1,5 +1,5 @@
 package com.example.studentmanager.student.entity;
 
 public enum Gender {
-    Male,Female
+    남,여
 }
