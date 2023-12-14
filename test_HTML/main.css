@@ -95,10 +95,22 @@ td {
 .delete_Modal {
   width: 60%;
   height: 500px;
-  padding: 10px;
-  background-color: cadetblue;
+  padding: 50px;
+  border: 6px solid #000;
+  position: fixed;
+  z-index: 100;
+}
+.delete_Modal p{
+  font-size: 1.5em;
+  text-align: center;
+  margin: 100px 0 100px;
 }
 .delete_Modal .btn_wrap {
   display: flex;
   justify-content: space-around;
+}
+.delete_Modal .btn_wrap .del_btn{
+  width: 100px;
+  height: 50px;
+  font-size: 1.5em;
 }
