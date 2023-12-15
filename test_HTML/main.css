@@ -18,6 +18,22 @@ h2 {
   padding: 7px 10px;
   cursor: pointer;
 }
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #8d8d8d;
+  margin: 0 0 30px 0;
+}
+/* 모달 뒷배경 */
+#modal_back {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #333333c7;
+}
 /* 테이블 뒷 배경 */
 .tableWrap {
   width: 80%;
@@ -86,21 +102,25 @@ td {
 }
 
 /* 정보 수정 버튼  */
-.student_Detail_Info .update {
+.student_Detail_Info .detail_btn {
   margin: 10px;
   font-size: 1.5em;
 }
 
-/* 삭제모달 */
-.delete_Modal {
-  width: 60%;
+/* 모달 공통 */
+.modal {
+  width: 1000px;
   height: 500px;
   padding: 50px;
   border: 6px solid #000;
+  background-color: #fff;
   position: fixed;
+  top: 200px;
+  left: 25%;
   z-index: 100;
 }
-.delete_Modal p{
+/* 삭제모달 */
+.delete_Modal p {
   font-size: 1.5em;
   text-align: center;
   margin: 100px 0 100px;
@@ -109,8 +129,49 @@ td {
   display: flex;
   justify-content: space-around;
 }
-.delete_Modal .btn_wrap .del_btn{
+.delete_Modal .btn_wrap .del_btn {
   width: 100px;
   height: 50px;
   font-size: 1.5em;
+  border-color: #000000b5;
+}
+
+/* 정보수정 모달 */
+.update_Modal {
+  height: 900px;
+}
+.update_Modal h1 {
+  margin-top: 0;
+}
+.update_Form {
+  margin: 50px 20%;
+  font-size: 2em;
+  
+}
+.update_Form p {
+  display: block;
+  text-align: justify;
+}
+.update_Form p:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+.update_Form .input_form {
+  width: 250px;
+  height: 50px;
+  font-size: 20pt;
+}
+
+.update_Modal .btn_wrap {
+  display: flex;
+  justify-content: end;
+  background-color: #8d8d8d;
+}
+
+.update_Modal .btn_wrap .update_btn {
+  font-size: 1.5em;
+  margin-left: 10px;
+  height: 50px;
+  border: 1px solid #000;
 }
