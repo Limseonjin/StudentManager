@@ -115,8 +115,8 @@ td {
   border: 6px solid #000;
   background-color: #fff;
   position: fixed;
-  top: 200px;
-  left: 25%;
+  top: 100px;
+  left: 20%;
   z-index: 100;
 }
 /* 삭제모달 */
@@ -138,14 +138,14 @@ td {
 
 /* 정보수정 모달 */
 .update_Modal {
-  height: 900px;
+  height: 80vh;
 }
 .update_Modal h1 {
   margin-top: 0;
 }
 .update_Form {
-  margin: 50px 20%;
-  font-size: 2em;
+  margin: 20px 20%;
+  font-size: 18pt;
   
 }
 .update_Form p {
@@ -155,12 +155,11 @@ td {
 .update_Form p:after {
   content: '';
   display: inline-block;
-  width: 100%;
 }
 .update_Form .input_form {
-  width: 250px;
+  width: 150px;
   height: 50px;
-  font-size: 20pt;
+  font-size: 18pt;
 }
 
 .update_Modal .btn_wrap {
