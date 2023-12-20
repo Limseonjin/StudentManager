@@ -40,15 +40,11 @@
 </div>
 
 <div class="studentDetailInfo non">
-    <h2><span>ss</span>의 세부정보</h2>
-    <ul class="DetailList">
-        <li class="info">학번 : <span>14</span></li>
-        <li class="info">이름 : <span>14</span></li>
-        <li class="info">성별 : <span>14</span></li>
-        <li class="info">나이 : <span>14</span></li>
-        <li class="info">전화번호 : <span>14</span></li>
-        <li class="info">주소 : <span>14</span></li>
-    </ul>
+    <h2><span id="detailName">ss</span>의 세부정보</h2>
+    <div id="detailList">
+
+    </div>
+
     <button class="btn detailBtn update">정보 수정</button>
     <button class="btn detailBtn delete">정보 삭제</button>
 </div>
