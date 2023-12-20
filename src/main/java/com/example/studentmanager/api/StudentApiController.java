@@ -5,10 +5,7 @@ import com.example.studentmanager.student.serivce.StudentApiSerivce;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -21,11 +18,13 @@ public class StudentApiController {
     //URL : api/v1/stuDetail/{num}
 
     @GetMapping("/{num}")
+    @ResponseBody
     public ResponseEntity<?> std(
             @PathVariable long num
     ){
         log.info("/api/v1/stuDetail/{} : GET!",num);
         Student stu = studentApiSerivce.getStu(num);
+        log.debug("stu : {}",stu);
         return ResponseEntity.ok().body(stu);
     }
 }
