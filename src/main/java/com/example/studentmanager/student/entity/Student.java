@@ -7,10 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-    private int num;
+    private long num;
     private String name;
     private int age;
-    private Gender gender;
+    private String gender;
     private String phoneNum;
     private String address;
 }

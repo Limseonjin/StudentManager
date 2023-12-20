@@ -25,7 +25,7 @@ h2 {
     margin: 0 0 30px 0;
 }
 /* 모달 뒷배경 */
-#modal_back {
+#modalBack {
     position: fixed;
     z-index: 99;
     top: 0;
@@ -101,12 +101,12 @@ td {
 
 /* 세부정보 보기 코드 */
 /* 전체 공통 코드  */
-.student_Detail_Info {
+.studentDetailInfo {
     margin: 30px auto;
     width: 80%;
 }
 /* ul, 리스트 전체 코드 */
-.student_Detail_Info .Detail_List {
+.studentDetailInfo .DetailList {
     background-color: rgb(215, 215, 215);
     display: flex;
     flex-direction: row;
@@ -116,22 +116,22 @@ td {
 }
 
 /* 정보 수정 버튼  */
-.student_Detail_Info .detail_btn {
+.studentDetailInfo .detailBtn {
     margin: 10px;
     font-size: 1.5em;
 }
 
 /* 삭제모달 */
-.delete_Modal p {
+.deleteModal p {
     font-size: 1.5em;
     text-align: center;
     margin: 100px 0 100px;
 }
-.delete_Modal .btn_wrap {
+.deleteModal .btnWrap {
     display: flex;
     justify-content: space-around;
 }
-.delete_Modal .btn_wrap .del_btn {
+.deleteModal .btnWrap .delBtn {
     width: 100px;
     height: 50px;
     font-size: 1.5em;
@@ -139,42 +139,42 @@ td {
 }
 
 /* 정보수정 모달 */
-.update_Modal {
+.updateModal {
     width: 60%;
     height: 90vh;
     position: absolute;
 }
-.update_Modal .modal_wrap{
+.updateModal .modalWrap{
     height: 100%;
     /*background-color: #dcc8c8;*/
     position: relative;
 }
-.update_Modal h1 {
+.updateModal h1 {
     margin-top: 0;
 }
-.update_Form {
+.updateForm {
     /*background-color: aquamarine;*/
     font-size: 2em;
 
 }
-.update_Form p {
+.updateForm p {
     width: 60%;
     display: block;
     text-align: justify;
     margin: 0 auto;
 }
-.update_Form p:after {
+.updateForm p:after {
     content: '';
     display: inline-block;
     width: 100%;
 }
-.update_Form .input_form {
+.updateForm .inputForm {
     width: 250px;
     height: 50px;
     font-size: 20pt;
 }
 
-.update_Modal .btn_wrap {
+.updateModal .btnWrap {
     position: relative;
     display: flex;
     justify-content: end;
@@ -183,7 +183,7 @@ td {
     bottom:5px;
 }
 
-.update_Modal .btn_wrap .update_btn {
+.updateModal .btnWrap .updateBtn {
 
     font-size: 1.5em;
     margin-left: 10px;

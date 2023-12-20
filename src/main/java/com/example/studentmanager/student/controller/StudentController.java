@@ -1,20 +1,20 @@
 package com.example.studentmanager.student.controller;
 
+import com.example.studentmanager.student.dto.StudentListDTO;
 import com.example.studentmanager.student.entity.Student;
 import com.example.studentmanager.student.serivce.StudentSerivce;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/student")
 @RequiredArgsConstructor
+@Slf4j
 public class StudentController {
     private final StudentSerivce studentSerivce;
     // 1. 조회 GET
@@ -25,9 +25,8 @@ public class StudentController {
 
     @GetMapping("/list")
     public String list(Model model){
-        System.out.println(" list GET! ");
-        List<Student> all = studentSerivce.studentList();
-        System.out.println("all = " + all);
+        log.info(" list GET! ");
+        List<StudentListDTO> all = studentSerivce.studentList();
         model.addAttribute("sList",all);
         return "mainView/list";
     }

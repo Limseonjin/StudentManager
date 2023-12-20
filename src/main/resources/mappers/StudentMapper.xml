@@ -15,4 +15,7 @@
         DELETE FROM tbl_student
         WHERE num = #{num}
     </delete>
+    <select id="findOne" resultType="stu">
+        SELECT * FROM tbl_student WHERE num = #{num}
+    </select>
 </mapper>

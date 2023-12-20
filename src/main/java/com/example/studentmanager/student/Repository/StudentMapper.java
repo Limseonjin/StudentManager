@@ -13,4 +13,6 @@ public interface StudentMapper {
     boolean update(Student stu);
     boolean delete(int stuNum);
 
+    Student findOne(long num);
+
 }
