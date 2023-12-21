@@ -99,12 +99,10 @@ td {
     border-bottom-right-radius: 20px;
 }
 /* 테이블 스크롤 */
-.studentList .tbodySize{
+.studentList .studentInfo{
     width: 100%;
     height: 500px;
     overflow: auto;
-
-
 }
 /* 세부정보 보기 코드 */
 /* 전체 공통 코드  */

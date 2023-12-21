@@ -40,7 +40,7 @@ class StudentMapperTest {
         assertEquals("선딩",one.getName());
     }
     @Test
-    @DisplayName("insert하면 전체사이즈가 4가 되어야 한다.")
+    @DisplayName("insert하면 전체사이즈가 49가 되어야 한다.")
     void insertTest() {
         //given
         for (int i = 4; i < 50; i++) {
