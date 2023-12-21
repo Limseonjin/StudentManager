@@ -1,5 +1,10 @@
 
 const URL = '/api/v1/stuDetail'
+//전체 조회 비동기 처리
+function fetchGetStudent(){
+    fetch(`${URL}`)
+        .then(res => res.json())
+}
 
 //개별 조회한 것을 JSON으로 받아오는 함수
 function fetchGetStudentDetail(num=1) {
@@ -41,4 +46,7 @@ function deleteStu(num){
             renderStudentDetail(student);
         })
 }
+
+//학생 정보 수정 처리
+
 

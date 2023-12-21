@@ -15,6 +15,12 @@
         DELETE FROM tbl_student
         WHERE num = #{num}
     </delete>
+    <update id="update">
+        UPDATE tbl_student
+        SET name = #{name}, age = #{age}, gender= #{gender}, phoneNum = #{phoneNum}, address = #{address}
+        WHERE num = #{num}
+
+    </update>
     <select id="findOne" resultType="stu">
         SELECT * FROM tbl_student WHERE num = #{num}
     </select>

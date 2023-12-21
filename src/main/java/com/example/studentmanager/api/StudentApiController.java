@@ -17,6 +17,13 @@ import java.util.List;
 public class StudentApiController {
     private final StudentApiSerivce studentApiSerivce;
 
+    //전체 학생 조회 요청
+    @GetMapping
+    public ResponseEntity<?> students(){
+        List<StudentListDTO> studentList = studentApiSerivce.getList();
+        return ResponseEntity.ok().body(studentList);
+    }
+
     //특정 학생 조회 요청
     //URL : api/v1/stuDetail/{num}
 
@@ -39,5 +46,16 @@ public class StudentApiController {
         List<Student> delStu = studentApiSerivce.delete(num);
 
         return ResponseEntity.ok().body(delStu);
+    }
+
+    //특정 학생 수정 요청
+    @PutMapping("/{num}")
+    public ResponseEntity<?> update(
+            @PathVariable long num
+    ){
+        log.info("/api/v1/stuDetail/{} : PUT!",num);
+        List<Student> updateStu = studentApiSerivce.update(num);
+
+        return ResponseEntity.ok().body(updateStu);
     }
 }

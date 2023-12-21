@@ -68,4 +68,19 @@ class StudentMapperTest {
         assertEquals(2,studentList.size());
         assertTrue(delete);
     }
+    @Test
+    @DisplayName("학번이 1인 학생의 나이를 1로 변경하면 나이가 1이 되어야 한다.")
+    void updateTest() {
+        //given
+        long num = 1;
+        int age = 1;
+        //when
+        Student one = studentMapper.findOne(1);
+        one.setAge(age);
+        boolean update = studentMapper.update(one);
+        Student newOne = studentMapper.findOne(1);
+        //then
+        assertTrue(update);
+        assertEquals(age,newOne.getAge());
+    }
 }
