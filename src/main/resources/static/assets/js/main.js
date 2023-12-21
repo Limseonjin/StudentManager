@@ -10,7 +10,6 @@ function fetchGetStudentDetail(num=1) {
           // console.log(student);
         renderStudentDetail(student);
       })
-
 }
 function renderStudentDetail({name,num,age,phoneNum,gender,address}) {
     let tag = '';
@@ -28,5 +27,18 @@ function renderStudentDetail({name,num,age,phoneNum,gender,address}) {
     </ul>
     `
     $detail_ul.innerHTML = tag;
-
 }
+
+// 학생 정보 삭제 처리
+function deleteStu(num){
+    const requestInfo = {
+        method : 'DELETE'
+    }
+    fetch(`${URL}/${num}`,requestInfo)
+        .then(res=> res.json())
+        .then(student =>{
+            console.log(student);
+            renderStudentDetail(student);
+        })
+}
+

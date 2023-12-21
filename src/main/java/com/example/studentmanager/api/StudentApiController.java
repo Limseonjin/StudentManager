@@ -1,11 +1,14 @@
 package com.example.studentmanager.api;
 
+import com.example.studentmanager.student.dto.StudentListDTO;
 import com.example.studentmanager.student.entity.Student;
 import com.example.studentmanager.student.serivce.StudentApiSerivce;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -26,5 +29,15 @@ public class StudentApiController {
         Student stu = studentApiSerivce.getStu(num);
         log.debug("stu : {}",stu);
         return ResponseEntity.ok().body(stu);
+    }
+
+    //특정 학생 삭제 요청
+    @DeleteMapping("/{num}")
+    public ResponseEntity<?> del(
+            @PathVariable long num){
+        log.info("/api/v1/stuDetail : DELETE!");
+        List<Student> delStu = studentApiSerivce.delete(num);
+
+        return ResponseEntity.ok().body(delStu);
     }
 }

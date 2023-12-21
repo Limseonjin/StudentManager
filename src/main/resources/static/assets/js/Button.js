@@ -17,6 +17,7 @@ function delBtnHandler(){
         $del_Modal.classList.add('non');
         $modal_back.classList.add('non');
         $detail_Info.classList.add('non');
+        deleteStu($del_Modal.dataset.num)
     });
     //No 버튼 클릭시 모달만 닫힘
     $del_no.onclick = e =>{
@@ -48,9 +49,11 @@ function updateBtnHandler() {
 //세부사항 버튼 클릭 핸들러
 function detailBtnHandler(e) {
     if (e.target.matches('.stdInfo')){
+        console.log("버튼눌렷뇽")
         $detail_Info.classList.remove('non');
         let num = +e.target.dataset.num;
         fetchGetStudentDetail(num);
+        document.querySelector('.deleteModal').dataset.num = ""+num;
     }
 }
 // ============== 버튼 클릭 이벤트 =========== //

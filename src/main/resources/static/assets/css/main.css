@@ -49,60 +49,49 @@ h2 {
 }
 
 /* 테이블 뒷 배경 */
+/* 테이블 뒷 배경 */
 .tableWrap {
     width: 80%;
     height: 500px;
     background-color: rgba(183, 183, 183, 0.712);
     padding: 30px;
     border-radius: 35px;
-
     margin: 0 auto;
+    overflow: hidden;
+}
+/* 스크롤되는 tbody를 포함하는 div */
+.tbodyScroll {
+    height: 400px; /* 고정 높이 */
+    overflow: auto;
 }
 
 /* 테이블 전체적인 스타일 */
 .studentList {
     width: 100%;
     background: white;
-    border-spacing: 0;
-    border-radius: 20px;
-    border-collapse: separate;
 }
 /* 글씨 스타일  */
 .info {
     font-size: 1.5em;
     padding: 10px;
 }
-
+/* */
 /* th, td 스타일  */
-.studentList thead th,
-td {
-    /* background-color: antiquewhite; */
-    text-align: center;
-    border: 1px solid black;
+.studentList th, .studentList td {
+    width: 20%;
 }
 .studentList .tableHead .headTd {
     font-weight: 700;
-}
-
-/* 테이블 4개 꼭짓점 둥글게 하는 코드  */
-.studentList .tableHead th:first-child {
-    border-top-left-radius: 20px;
-}
-.studentList .tableHead th:last-child {
-    border-top-right-radius: 20px;
-}
-
-.studentList .studentInfo tr:last-child td:first-child {
-    border-bottom-left-radius: 20px;
-}
-.studentList .studentInfo tr:last-child td:last-child {
-    border-bottom-right-radius: 20px;
 }
 /* 테이블 스크롤 */
 .studentList .studentInfo{
     width: 100%;
     height: 500px;
     overflow: auto;
+}
+/* tbody 내부 가운데정렬 */
+.studentList .studentInfo .info{
+   text-align: center;
 }
 /* 세부정보 보기 코드 */
 /* 전체 공통 코드  */

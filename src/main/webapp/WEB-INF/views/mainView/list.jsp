@@ -15,31 +15,42 @@
 <div id="modalBack" class="non"></div>
 <h1>학생 정보 관리 시스템</h1>
 <div class="tableWrap">
+
+    <!-- 고정된 thead를 포함하는 테이블 -->
     <table class="studentList">
         <thead class="tableHead">
-        <th class="info headTd">학번</th>
-        <th class="info headTd">이름</th>
-        <th class="info headTd">성별</th>
-        <th class="info headTd">나이</th>
-        <th class="info headTd">기타</th>
-        </thead>
-        <tbody class="studentInfo">
-        <c:forEach var="s" items="${sList}">
         <tr>
-            <td class="info">${s.num}</td>
-            <td class="info">${s.name}</td>
-            <td class="info">${s.gender}</td>
-            <td class="info">${s.age}</td>
-            <td class="info">
-                <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>
-            </td>
+            <th class="info headTd">학번</th>
+            <th class="info headTd">이름</th>
+            <th class="info headTd">성별</th>
+            <th class="info headTd">나이</th>
+            <th class="info headTd">기타</th>
         </tr>
-        </c:forEach>
-        </tbody>
+        </thead>
     </table>
-</div>
 
-<div class="studentDetailInfo non">
+    <!-- 스크롤되는 tbody를 포함하는 테이블 -->
+    <div class="tbodyScroll">
+        <table class="studentList">
+            <tbody class="studentInfo">
+            <!-- 행 데이터 -->
+            <c:forEach var="s" items="${sList}">
+                <tr>
+                    <td class="info">${s.num}</td>
+                    <td class="info">${s.name}</td>
+                    <td class="info">${s.gender}</td>
+                    <td class="info">${s.age}</td>
+                    <td class="info">
+                        <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>
+                    </td>
+                </tr>
+            </c:forEach>
+
+            </tbody>
+        </table>
+    </div>
+
+<div class="studentDetailInfo">
     <h2><span id="detailName">ss</span>의 세부정보</h2>
     <div id="detailList">
 
