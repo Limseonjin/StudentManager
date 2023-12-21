@@ -49,8 +49,8 @@
             </tbody>
         </table>
     </div>
-
-<div class="studentDetailInfo">
+</div>
+<div class="studentDetailInfo non">
     <h2><span id="detailName">ss</span>의 세부정보</h2>
     <div id="detailList">
 

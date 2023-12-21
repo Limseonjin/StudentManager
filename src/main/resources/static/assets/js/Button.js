@@ -18,6 +18,7 @@ function delBtnHandler(){
         $modal_back.classList.add('non');
         $detail_Info.classList.add('non');
         deleteStu($del_Modal.dataset.num)
+        window.location.href = '/student/list';
     });
     //No 버튼 클릭시 모달만 닫힘
     $del_no.onclick = e =>{
