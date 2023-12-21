@@ -1,4 +1,4 @@
-const $detail_btn = [...document.querySelectorAll('.stdInfo')];
+const $detail_btn = document.querySelector('.studentInfo');
 const $del_btn = document.querySelector('.delete');
 const $detail_Info = document.querySelector('.studentDetailInfo');
 const $update_btn = document.querySelector('.update');
@@ -47,15 +47,15 @@ function updateBtnHandler() {
 }
 //세부사항 버튼 클릭 핸들러
 function detailBtnHandler(e) {
-    $detail_Info.classList.remove('non');
-    let num = +e.target.dataset.num;
-    fetchGetStudentDetail(num);
+    if (e.target.matches('.stdInfo')){
+        $detail_Info.classList.remove('non');
+        let num = +e.target.dataset.num;
+        fetchGetStudentDetail(num);
+    }
 }
 // ============== 버튼 클릭 이벤트 =========== //
 //세부사항 버튼 클릭시
-$detail_btn.forEach((btn) => {
-    btn.addEventListener('click', detailBtnHandler)
-});
+$detail_btn.addEventListener('click', detailBtnHandler)
 
 //삭제버튼 클릭시 이벤트
 $del_btn.addEventListener('click', delBtnHandler);

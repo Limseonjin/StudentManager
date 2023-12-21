@@ -55,7 +55,7 @@ h2 {
     background-color: rgba(183, 183, 183, 0.712);
     padding: 30px;
     border-radius: 35px;
-    overflow: auto;
+
     margin: 0 auto;
 }
 
@@ -63,9 +63,9 @@ h2 {
 .studentList {
     width: 100%;
     background: white;
-    border-collapse: separate;
     border-spacing: 0;
     border-radius: 20px;
+    border-collapse: separate;
 }
 /* 글씨 스타일  */
 .info {
@@ -98,7 +98,14 @@ td {
 .studentList .studentInfo tr:last-child td:last-child {
     border-bottom-right-radius: 20px;
 }
+/* 테이블 스크롤 */
+.studentList .tbodySize{
+    width: 100%;
+    height: 500px;
+    overflow: auto;
 
+
+}
 /* 세부정보 보기 코드 */
 /* 전체 공통 코드  */
 .studentDetailInfo {

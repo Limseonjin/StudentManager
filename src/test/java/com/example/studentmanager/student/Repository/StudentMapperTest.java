@@ -43,14 +43,16 @@ class StudentMapperTest {
     @DisplayName("insert하면 전체사이즈가 4가 되어야 한다.")
     void insertTest() {
         //given
-        Student student = new Student(4, "하이", 25, "여", "0102305235", "서울");
+        for (int i = 4; i < 50; i++) {
+            Student student = new Student(i, "하이"+i, i, "여", "010-2305-422"+i, "서울");
+
+            studentMapper.insert(student);
+        }
         //when
-        boolean insert = studentMapper.insert(student);
         List<Student> studentList = studentMapper.findAll();
 
         //then
-        assertTrue(insert);
-        assertEquals(4,studentList.size());
+        assertEquals(49,studentList.size());
     }
 
     @Test

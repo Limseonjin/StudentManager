@@ -23,18 +23,22 @@
         <th class="info headTd">나이</th>
         <th class="info headTd">기타</th>
         </thead>
-        <tbody class="studentInfo">
-        <c:forEach var="s" items="${sList}">
-        <tr>
-            <td class="info">${s.num}</td>
-            <td class="info">${s.name}</td>
-            <td class="info">${s.gender}</td>
-            <td class="info">${s.age}</td>
-            <td class="info">
-                <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>
-            </td>
-        </tr>
-        </c:forEach>
+
+        <div id="tbodySize">
+            <tbody class="studentInfo">
+            <c:forEach var="s" items="${sList}">
+            <tr>
+                <td class="info">${s.num}</td>
+                <td class="info">${s.name}</td>
+                <td class="info">${s.gender}</td>
+                <td class="info">${s.age}</td>
+                <td class="info">
+                    <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>
+                </td>
+            </tr>
+            </c:forEach>
+        </div>
+
         </tbody>
     </table>
 </div>
