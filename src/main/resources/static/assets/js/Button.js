@@ -7,6 +7,23 @@ const $del_Modal = document.querySelector('.deleteModal');
 
 //========= 버튼 핸들러 함수 ===========/
 
+//성별 value로 변환
+function transGender(gender){
+    if (gender === '여'){
+        return 2
+    }else if (gender === '남'){
+        return 1
+    }
+}
+function valueTransGender(gender){
+    if (gender === '1'){
+        return "남"
+    }else if (gender === '2'){
+        return "여"
+    }
+}
+
+// 삭제모달에서 삭제 버튼을 눌렀을때 이벤트 핸들러
 function clickYesHandler(){
     $del_Modal.classList.add('non');
     $modal_back.classList.add('non');
@@ -43,18 +60,19 @@ function updateBtnHandler() {
     $update_Modal.classList.remove('non');
     $modal_back.classList.remove('non');
 
-    //document.getElementById('stuNo').value($detailList.children[0].children[0].textContent)
+    document.getElementById('stuNo').value= $detailList.children[0].children[0].textContent
     document.getElementById('stuName').value = $detailList.children[1].children[0].textContent
-    // document.getElementById('stuGender').value($detailList.children[2].children[0].textContent)
-    // document.getElementById('stuAge').value($detailList.children[3].children[0].textContent)
-    // document.getElementById('stuPhone').value($detailList.children[4].children[0].textContent)
-    // document.getElementById('stuAddress').value($detailList.children[5].children[0].textContent)
+    document.getElementById('stuGender').value=transGender($detailList.children[2].children[0].textContent)
+    document.getElementById('stuAge').value=($detailList.children[3].children[0].textContent)
+    document.getElementById('stuPhone').value=($detailList.children[4].children[0].textContent)
+    document.getElementById('stuAddress').value=($detailList.children[5].children[0].textContent)
 
 
     //Yes 버튼 클릭시
     $update_Yes.onclick = e =>{
         $update_Modal.classList.add('non');
         $modal_back.classList.add('non');
+        updateStudent()
     }
 
     //NO버튼 클릭시

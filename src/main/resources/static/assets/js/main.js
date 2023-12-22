@@ -83,22 +83,32 @@ function deleteStu(num){
 
 //학생 정보 수정 처리
 function updateStudent(){
-
     const payload = {
-        num : $detailList.children[0].children[0].textContent,
-        name : $detailList.children[0].children[0].textContent,
-        age : $detailList.children[0].children[0].textContent,
-        gender : $detailList.children[0].children[0].textContent,
-        phoneNum : $detailList.children[0].children[0].textContent,
-        address : $detailList.children[0].children[0].textContent
+        num : +document.getElementById('stuNo').value,
+        name : document.getElementById('stuName').value,
+        age : +document.getElementById('stuAge').value,
+        gender : valueTransGender(document.getElementById('stuGender').value),
+        phoneNum : document.getElementById('stuPhone').value,
+        address :  document.getElementById('stuAddress').value
     }
     const requestInfo = {
         method : 'PUT',
         headers :{
             'content-type' : 'application/json'
         },
-        body : {},
+        body : JSON.stringify(payload)
+        ,
     }
     fetch(`${URL}`,requestInfo)
+        .then(res => res.json())
+        .then(stu => {
+            console.log(stu)
+            renderDetailandList(stu)
+        })
 }
 
+// 수정 후 디테일과 리스트 비동기 처리
+function renderDetailandList({stuList,stu}){
+    renderStudentList(stuList)
+    renderStudentDetail(stu)
+}
