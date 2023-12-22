@@ -1,7 +1,6 @@
 package com.example.studentmanager.student.controller;
 
-import com.example.studentmanager.student.dto.StudentListDTO;
-import com.example.studentmanager.student.entity.Student;
+import com.example.studentmanager.student.dto.StudentListResponseDTO;
 import com.example.studentmanager.student.serivce.StudentSerivce;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +25,7 @@ public class StudentController {
     @GetMapping("/list")
     public String list(Model model){
         log.info(" list GET! ");
-        List<StudentListDTO> all = studentSerivce.studentList();
+        List<StudentListResponseDTO> all = studentSerivce.studentList();
         model.addAttribute("sList",all);
         return "mainView/list";
     }

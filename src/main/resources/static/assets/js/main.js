@@ -1,9 +1,37 @@
 
-const URL = '/api/v1/stuDetail'
+const URL = '/api/v1/stuDetail';
+
+(()=>{
+    fetchGetStudent();
+})()
+function renderStudentList(sList) {
+    const $tbody = document.getElementById('stuList');
+    let tag = ``;
+    for (const s of sList) {
+        tag += `
+           <tr>
+                <td class="info">${s.num}</td>
+                <td class="info">${s.name}</td>
+                <td class="info">${s.gender}</td>
+                <td class="info">${s.age}</td>
+                <td class="info">
+                    <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>
+                </td>
+            </tr>
+          `
+
+    }
+    $tbody.innerHTML = tag;
+
+}
+
 //전체 조회 비동기 처리
 function fetchGetStudent(){
     fetch(`${URL}`)
         .then(res => res.json())
+        .then(sList =>{
+            renderStudentList(sList);
+        })
 }
 
 //개별 조회한 것을 JSON으로 받아오는 함수
@@ -16,6 +44,7 @@ function fetchGetStudentDetail(num=1) {
         renderStudentDetail(student);
       })
 }
+// 상세정보 렌더링
 function renderStudentDetail({name,num,age,phoneNum,gender,address}) {
     let tag = '';
     const $detail_ul = document.getElementById('detailList');
@@ -40,13 +69,36 @@ function deleteStu(num){
         method : 'DELETE'
     }
     fetch(`${URL}/${num}`,requestInfo)
-        .then(res=> res.json())
+        .then(res=> {
+            if (res.status === 200){
+                return res.json()
+            }else{
+                return ;
+            }})
         .then(student =>{
             console.log(student);
-            renderStudentDetail(student);
+            renderStudentList(student);
         })
 }
 
 //학생 정보 수정 처리
+function updateStudent(){
 
+    const payload = {
+        num : $detailList.children[0].children[0].textContent,
+        name : $detailList.children[0].children[0].textContent,
+        age : $detailList.children[0].children[0].textContent,
+        gender : $detailList.children[0].children[0].textContent,
+        phoneNum : $detailList.children[0].children[0].textContent,
+        address : $detailList.children[0].children[0].textContent
+    }
+    const requestInfo = {
+        method : 'PUT',
+        headers :{
+            'content-type' : 'application/json'
+        },
+        body : {},
+    }
+    fetch(`${URL}`,requestInfo)
+}
 

@@ -1,6 +1,8 @@
 package com.example.studentmanager.api;
 
-import com.example.studentmanager.student.dto.StudentListDTO;
+import com.example.studentmanager.student.dto.StudentDetailRequestDTO;
+import com.example.studentmanager.student.dto.StudentDetailResponseDTO;
+import com.example.studentmanager.student.dto.StudentListResponseDTO;
 import com.example.studentmanager.student.entity.Student;
 import com.example.studentmanager.student.serivce.StudentApiSerivce;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,7 @@ public class StudentApiController {
     //전체 학생 조회 요청
     @GetMapping
     public ResponseEntity<?> students(){
-        List<StudentListDTO> studentList = studentApiSerivce.getList();
+        List<StudentListResponseDTO> studentList = studentApiSerivce.getList();
         return ResponseEntity.ok().body(studentList);
     }
 
@@ -43,18 +45,18 @@ public class StudentApiController {
     public ResponseEntity<?> del(
             @PathVariable long num){
         log.info("/api/v1/stuDetail : DELETE!");
-        List<Student> delStu = studentApiSerivce.delete(num);
+        List<StudentListResponseDTO> delStu = studentApiSerivce.delete(num);
 
         return ResponseEntity.ok().body(delStu);
     }
 
     //특정 학생 수정 요청
-    @PutMapping("/{num}")
+    @PutMapping
     public ResponseEntity<?> update(
-            @PathVariable long num
-    ){
-        log.info("/api/v1/stuDetail/{} : PUT!",num);
-        List<Student> updateStu = studentApiSerivce.update(num);
+            @RequestBody StudentDetailRequestDTO dto
+            ){
+        log.info("/api/v1/stuDetail : PUT!");
+        StudentDetailResponseDTO updateStu = studentApiSerivce.update(dto);
 
         return ResponseEntity.ok().body(updateStu);
     }

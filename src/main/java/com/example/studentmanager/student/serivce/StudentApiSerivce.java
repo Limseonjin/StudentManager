@@ -1,7 +1,9 @@
 package com.example.studentmanager.student.serivce;
 
 import com.example.studentmanager.student.Repository.StudentMapper;
-import com.example.studentmanager.student.dto.StudentListDTO;
+import com.example.studentmanager.student.dto.StudentDetailRequestDTO;
+import com.example.studentmanager.student.dto.StudentDetailResponseDTO;
+import com.example.studentmanager.student.dto.StudentListResponseDTO;
 import com.example.studentmanager.student.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,10 @@ public class StudentApiSerivce {
     StudentMapper studentMapper;
 
     //전체 조회
-    public List<StudentListDTO> getList(){
-        List<StudentListDTO> studentList = studentMapper.findAll()
+    public List<StudentListResponseDTO> getList(){
+        List<StudentListResponseDTO> studentList = studentMapper.findAll()
                 .stream()
-                .map(StudentListDTO::new)
+                .map(StudentListResponseDTO::new)
                 .collect(Collectors.toList());
 
         return studentList;
@@ -31,14 +33,18 @@ public class StudentApiSerivce {
         return student1;
     }
     // 삭제 요청
-    public List<Student> delete(long num){
+    public List<StudentListResponseDTO> delete(long num){
         studentMapper.delete(num);
-        return studentMapper.findAll();
+        return getList();
+
     }
 
     //수정 요청
-    public List<Student> update(long num){
-        studentMapper.update(studentMapper.findOne(num));
-        return studentMapper.findAll();
+    public StudentDetailResponseDTO update(StudentDetailRequestDTO dto){
+        studentMapper.update(dto.toEntity());
+        return StudentDetailResponseDTO.builder()
+                .stuList(studentMapper.findAll())
+                .stu(dto.toEntity())
+                .build();
     }
 }

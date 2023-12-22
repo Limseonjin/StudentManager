@@ -6,13 +6,13 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class StudentListDTO {
+public class StudentListResponseDTO {
     private long num;
     private String name;
     private String gender;
     private int age;
 
-    public StudentListDTO(Student stu) {
+    public StudentListResponseDTO(Student stu) {
         this.num = stu.getNum();
         this.name = stu.getName();
         this.gender = stu.getGender();

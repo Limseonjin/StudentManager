@@ -6,6 +6,7 @@ import lombok.*;
 @ToString @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Student {
     private long num;
     private String name;
