@@ -14,6 +14,9 @@
 <body>
 <div id="modalBack" class="non"></div>
 <h1>학생 정보 관리 시스템</h1>
+<div id="addStudentWrap">
+    <button id="addStudent" class="btn">학생 추가</button>
+</div>
 <div class="tableWrap">
 
     <!-- 고정된 thead를 포함하는 테이블 -->
@@ -34,17 +37,7 @@
         <table class="studentList">
             <tbody id="stuList" class="studentInfo">
             <!-- 행 데이터 -->
-<%--            <c:forEach var="s" items="${sList}">--%>
-<%--                <tr>--%>
-<%--                    <td class="info">${s.num}</td>--%>
-<%--                    <td class="info">${s.name}</td>--%>
-<%--                    <td class="info">${s.gender}</td>--%>
-<%--                    <td class="info">${s.age}</td>--%>
-<%--                    <td class="info">--%>
-<%--                        <button class="stdInfo detailBtn btn" data-num="${s.num}">세부사항</button>--%>
-<%--                    </td>--%>
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
+
 
             </tbody>
         </table>
@@ -58,6 +51,29 @@
 
     <button class="btn detailBtn update">정보 수정</button>
     <button class="btn detailBtn delete">정보 삭제</button>
+</div>
+
+<div class="addWrap non">
+    <form class="addForm">
+        <p>학 번 <input id="num" class="inputForm" type="text" name="num"></p>
+        <div class="line"></div>
+        <p>이 름 <input id="name" class="inputForm" type="text" name="name"></p>
+        <div class="line"></div>
+        <p>성 별 <select id="gender" class="inputForm" name="gender">
+            <option value="1">남</option>
+            <option value="2">여</option>
+        </select></p>
+        <div class="line"></div>
+        <p>나 이 <input id="age" class="inputForm" type="text" name="age"></p>
+        <div class="line"></div>
+        <p>전 화 번 호 <input id="phone" class="inputForm" type="text" name="phoneNum"></p>
+        <div class="line"></div>
+        <p>주 소 <input id="address" class="inputForm" type="text" name="address"></p>
+    </form>
+    <div class="btnWrap">
+        <button id="addYes" class="addBtn btn">추가</button>
+        <button id="addNo" class="addBtn btn">취소</button>
+    </div>
 </div>
 
 <div class="deleteModal modal non">

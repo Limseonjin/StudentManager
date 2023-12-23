@@ -25,7 +25,7 @@ h2 {
   margin: 0 0 30px 0;
 }
 /* 모달 뒷배경 */
-#modal_back {
+#modalBack {
   position: fixed;
   z-index: 99;
   top: 0;
@@ -49,64 +49,58 @@ h2 {
 }
 
 /* 테이블 뒷 배경 */
+/* 테이블 뒷 배경 */
 .tableWrap {
   width: 80%;
   height: 500px;
   background-color: rgba(183, 183, 183, 0.712);
   padding: 30px;
   border-radius: 35px;
-  overflow: auto;
   margin: 0 auto;
+  overflow: hidden;
+}
+/* 스크롤되는 tbody를 포함하는 div */
+.tbodyScroll {
+  height: 400px; /* 고정 높이 */
+  overflow: auto;
 }
 
 /* 테이블 전체적인 스타일 */
 .studentList {
   width: 100%;
   background: white;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 20px;
 }
 /* 글씨 스타일  */
 .info {
   font-size: 1.5em;
   padding: 10px;
 }
-
+/* */
 /* th, td 스타일  */
-.studentList thead th,
-td {
-  /* background-color: antiquewhite; */
-  text-align: center;
-  border: 1px solid black;
+.studentList th, .studentList td {
+  width: 20%;
 }
 .studentList .tableHead .headTd {
   font-weight: 700;
 }
-
-/* 테이블 4개 꼭짓점 둥글게 하는 코드  */
-.studentList .tableHead th:first-child {
-  border-top-left-radius: 20px;
+/* 테이블 스크롤 */
+.studentList .studentInfo{
+  width: 100%;
+  height: 500px;
+  overflow: auto;
 }
-.studentList .tableHead th:last-child {
-  border-top-right-radius: 20px;
+/* tbody 내부 가운데정렬 */
+.studentList .studentInfo .info{
+  text-align: center;
 }
-
-.studentList .studentInfo tr:last-child td:first-child {
-  border-bottom-left-radius: 20px;
-}
-.studentList .studentInfo tr:last-child td:last-child {
-  border-bottom-right-radius: 20px;
-}
-
 /* 세부정보 보기 코드 */
 /* 전체 공통 코드  */
-.student_Detail_Info {
+.studentDetailInfo {
   margin: 30px auto;
   width: 80%;
 }
 /* ul, 리스트 전체 코드 */
-.student_Detail_Info .Detail_List {
+.studentDetailInfo .DetailList {
   background-color: rgb(215, 215, 215);
   display: flex;
   flex-direction: row;
@@ -116,22 +110,22 @@ td {
 }
 
 /* 정보 수정 버튼  */
-.student_Detail_Info .detail_btn {
+.studentDetailInfo .detailBtn {
   margin: 10px;
   font-size: 1.5em;
 }
 
 /* 삭제모달 */
-.delete_Modal p {
+.deleteModal p {
   font-size: 1.5em;
   text-align: center;
   margin: 100px 0 100px;
 }
-.delete_Modal .btn_wrap {
+.deleteModal .btnWrap {
   display: flex;
   justify-content: space-around;
 }
-.delete_Modal .btn_wrap .del_btn {
+.deleteModal .btnWrap .delBtn {
   width: 100px;
   height: 50px;
   font-size: 1.5em;
@@ -139,42 +133,42 @@ td {
 }
 
 /* 정보수정 모달 */
-.update_Modal {
+.updateModal {
   width: 60%;
   height: 90vh;
   position: absolute;
 }
-.update_Modal .modal_wrap{
+.updateModal .modalWrap{
   height: 100%;
   /*background-color: #dcc8c8;*/
   position: relative;
 }
-.update_Modal h1 {
+.updateModal h1 {
   margin-top: 0;
 }
-.update_Form {
+.updateForm {
   /*background-color: aquamarine;*/
   font-size: 2em;
-  
+
 }
-.update_Form p {
+.updateForm p {
   width: 60%;
   display: block;
   text-align: justify;
   margin: 0 auto;
 }
-.update_Form p:after {
+.updateForm p:after {
   content: '';
   display: inline-block;
   width: 100%;
 }
-.update_Form .input_form {
+.updateForm .inputForm {
   width: 250px;
   height: 50px;
   font-size: 20pt;
 }
 
-.update_Modal .btn_wrap {
+.updateModal .btnWrap {
   position: relative;
   display: flex;
   justify-content: end;
@@ -183,11 +177,24 @@ td {
   bottom:5px;
 }
 
-.update_Modal .btn_wrap .update_btn {
+.updateModal .btnWrap .updateBtn {
 
   font-size: 1.5em;
   margin-left: 10px;
   height: 50px;
   border: 1px solid #000;
 
+}
+#addStudentWrap {
+  width: 90%;
+  height: 90px;
+  display:flex;
+  justify-content: end;
+}
+#addStudent{
+  height: 60px;
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: end;
+  border: 1px solid black;
 }

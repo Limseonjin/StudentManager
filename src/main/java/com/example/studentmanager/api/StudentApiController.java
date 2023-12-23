@@ -30,13 +30,20 @@ public class StudentApiController {
     //URL : api/v1/stuDetail/{num}
 
     @GetMapping("/{num}")
-    @ResponseBody
     public ResponseEntity<?> std(
             @PathVariable long num
     ){
         log.info("/api/v1/stuDetail/{} : GET!",num);
         Student stu = studentApiSerivce.getStu(num);
         log.debug("stu : {}",stu);
+        return ResponseEntity.ok().body(stu);
+    }
+    // 학생 추가
+    @PostMapping
+    public ResponseEntity<?> addStu(
+            @RequestBody Student stu
+    ){
+        log.info("api/v1/stuDetail : POST");
         return ResponseEntity.ok().body(stu);
     }
 

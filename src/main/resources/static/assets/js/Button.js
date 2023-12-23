@@ -4,7 +4,7 @@ const $detail_Info = document.querySelector('.studentDetailInfo');
 const $update_btn = document.querySelector('.update');
 const $modal_back = document.getElementById('modalBack');
 const $del_Modal = document.querySelector('.deleteModal');
-
+const $add_btn = document.getElementById('addStudent')
 //========= 버튼 핸들러 함수 ===========/
 
 //성별 value로 변환
@@ -91,10 +91,30 @@ function detailBtnHandler(e) {
         document.querySelector('.deleteModal').dataset.num = ""+num;
     }
 }
+
+//학생 추가 버튼 핸들러
+function addBtnHandler() {
+    const $addForm = document.querySelector('.addWrap')
+    $addForm.classList.remove('non')
+
+    //추가 버튼 클릭 핸들러
+    function addYesBtnHandler() {
+        $addForm.classList.add('non')
+    }
+    function addNoBtnHandler() {
+        $addForm.classList.add('non')
+    }
+
+    document.getElementById('addYes').addEventListener('click',addYesBtnHandler)
+    document.getElementById('addNo').addEventListener('click',addNoBtnHandler)
+}
 // ============== 버튼 클릭 이벤트 =========== //
+
+//학생추가 버튼 클릭시
+$add_btn.addEventListener('click',addBtnHandler)
+
 //세부사항 버튼 클릭시
 $detail_btn.addEventListener('click', detailBtnHandler)
-
 //삭제버튼 클릭시 이벤트
 $del_btn.addEventListener('click', delBtnHandler);
 //수정버튼 클릭시 이벤트

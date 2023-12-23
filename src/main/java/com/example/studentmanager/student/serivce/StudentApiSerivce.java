@@ -32,6 +32,14 @@ public class StudentApiSerivce {
         Student student1 = studentMapper.findOne(num);
         return student1;
     }
+    // 추가 요청
+    public StudentDetailResponseDTO addStu(StudentDetailRequestDTO dto){
+        studentMapper.insert(dto.toEntity());
+        return StudentDetailResponseDTO.builder()
+                .stu(dto.toEntity())
+                .stuList(studentMapper.findAll())
+                .build();
+    }
     // 삭제 요청
     public List<StudentListResponseDTO> delete(long num){
         studentMapper.delete(num);

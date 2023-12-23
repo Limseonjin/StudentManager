@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Score {
-    private int stuNum;
+    private int num;
     private float kor;
     private float eng;
     private float math;
