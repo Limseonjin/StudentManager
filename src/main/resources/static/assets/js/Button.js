@@ -100,6 +100,7 @@ function addBtnHandler() {
     //추가 버튼 클릭 핸들러
     function addYesBtnHandler() {
         $addForm.classList.add('non')
+        addStu();
     }
     function addNoBtnHandler() {
         $addForm.classList.add('non')

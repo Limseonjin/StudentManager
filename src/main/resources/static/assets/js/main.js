@@ -62,7 +62,30 @@ function renderStudentDetail({name,num,age,phoneNum,gender,address}) {
     `
     $detail_ul.innerHTML = tag;
 }
-
+// 학생 추가 처리
+function addStu(){
+    const payload ={
+        num : document.getElementById('num').value,
+        name :document.getElementById('name').value,
+        age:document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        phoneNum: document.getElementById('phone').value,
+        address:document.getElementById('address').value
+    }
+    const reqInfo = {
+        method : 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body:JSON.stringify(payload)
+    }
+    fetch(`${URL}`,reqInfo)
+        .then(res => res.json())
+        .then(stu=>{
+            // console.log(stu);
+            renderStudentList(stu.stuList);
+        })
+}
 // 학생 정보 삭제 처리
 function deleteStu(num){
     const requestInfo = {

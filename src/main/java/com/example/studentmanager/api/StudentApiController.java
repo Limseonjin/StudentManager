@@ -41,10 +41,11 @@ public class StudentApiController {
     // 학생 추가
     @PostMapping
     public ResponseEntity<?> addStu(
-            @RequestBody Student stu
+            @RequestBody StudentDetailRequestDTO dto
     ){
         log.info("api/v1/stuDetail : POST");
-        return ResponseEntity.ok().body(stu);
+        StudentDetailResponseDTO resDTO = studentApiSerivce.addStu(dto);
+        return ResponseEntity.ok().body(resDTO);
     }
 
     //특정 학생 삭제 요청
